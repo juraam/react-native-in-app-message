@@ -8,6 +8,7 @@ import {
   PanGestureHandler,
   TapGestureHandler
 } from 'react-native-gesture-handler';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { NotificationBase } from './NotificationBase';
 import { androidStyle } from './androidStyle';
 
@@ -21,7 +22,7 @@ export class Notification extends NotificationBase {
     autohide: true,
   };
 
-  offset = 0;
+  offset = getStatusBarHeight();
 
   onHandlerStateChange = (event) => {
     const {velocityY, translationY, numberOfPointers, state} = event.nativeEvent;
